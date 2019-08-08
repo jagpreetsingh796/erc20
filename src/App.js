@@ -20,7 +20,7 @@ function App() {
       <h4>Transfer</h4>
       <Transfer/>
       <br/>
-      <h4>Assign Delegate</h4>
+      <h4>Assign Delegates</h4>
       <Approve/>
       <br/>
       <h4>Check Delegate balance</h4>

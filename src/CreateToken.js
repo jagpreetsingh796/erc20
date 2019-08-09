@@ -316,7 +316,7 @@ class CreateToken extends React.Component
 
             </form>
             <form onSubmit={this.handlesubmit1}>
-               <p>Enter name of your token</p>
+               <h4>Enter name of your token</h4>
                 <input type="text" name="Name1" onChange={this.handlechange} value={this.state.Name1}/>
                 <br/>
                 <button type="submit">submit</button>

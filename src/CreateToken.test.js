@@ -5,6 +5,15 @@ import CreateToken from './CreateToken'
 import { mount } from 'enzyme';
 
 describe('CreateToken component',()=>{
+        
+  it('Testing  component', () => {
+    const wrapper = shallow(<CreateToken />);
+          const text = wrapper.find('h4').at(0).text();
+          expect(text).toEqual('Enter name of your token');
+    
+  
+  
+        });
         it('Testing CreateToken component1', () => {
             const wrapper = mount(<CreateToken/>);
             const input = wrapper.find('input').at(0);

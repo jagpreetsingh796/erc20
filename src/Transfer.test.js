@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import Transfer from './Transfer'
+import Transfer from './Components/Transfer'
 import { mount } from 'enzyme';
 
 

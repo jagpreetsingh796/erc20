@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import Approve from './Approve'
+import Approve from './Components/Approve'
 import { mount } from 'enzyme';
 
 

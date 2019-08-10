@@ -9,7 +9,7 @@ describe('CreateToken component',()=>{
   it('Testing  component', () => {
     const wrapper = shallow(<CreateToken />);
           const text = wrapper.find('h4').at(0).text();
-          expect(text).toEqual('Enter name of your token');
+          expect(text).toEqual('Check your token ID');
     
   
   

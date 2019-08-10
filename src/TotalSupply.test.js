@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import TotalSupply from './GetTotalSupply'
+import TotalSupply from './Components/GetTotalSupply'
 import { mount } from 'enzyme';
 
 describe("Test totalsupply Component",()=>{

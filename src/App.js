@@ -1,5 +1,4 @@
 import React from 'react';
-
 import CreateToken from './CreateToken'
 import GetTotalSupply from './GetTotalSupply'
 import Transfer from './Transfer'
@@ -8,9 +7,14 @@ import Delegatebalance from './Delegatebalance'
 import DelegateTransfer from './DelegateTransfer'
 import './App.css';
 
+require('dotenv').config();
+
+let appName = process.env.APP_NAME || 'ERC-20 DEPLOYER APP!';
+
 function App() {
   return (
     <div className="App">
+      <h1>Welcome to {appName}</h1>
       <h4>Create your ERC20 token here</h4>
       <CreateToken/>
       <br/>

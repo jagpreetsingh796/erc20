@@ -294,37 +294,24 @@ class CreateToken extends React.Component
     render()
     {
         return(
-            <div>
-            <form onSubmit={this.handlesubmit} >
-                Name
-                <input  type="text"  name="Name"  label="Name" onChange={this.handlechange} value={this.state.Name}/>
+            <div className="wrapper">
+                <form onSubmit={this.handlesubmit} className="wrapper__form">
+                    <input  type="text"  name="Name"  label="Name" onChange={this.handlechange} value={this.state.Name} placeholder="TOKEN NAME (ex. Ethereum)"/>
+                    <input type="text"  name="Symbol" label="Symbol" onChange={this.handlechange}  value={this.state.Symbol} placeholder="TOKEN CODE (ex. ETH)"/>
+                    <input type="text"  name="TotalSupply" label="TotalSupply"  onChange={this.handlechange}  value={this.state.TotalSupply} placeholder="TOTAL SUPPLY (ex. 10000)"/>
+                    <button type="submit">Create Token</button>
+                </form>
 
-               
-                Symbol
-                <input type="text"  name="Symbol" label="Symbol" onChange={this.handlechange}  value={this.state.Symbol}/>
-               
-               TotalSupply
-                <input type="text"  name="TotalSupply" label="TotalSupply"  onChange={this.handlechange}  value={this.state.TotalSupply}/>
+                <form onSubmit={this.handlesubmit1} className="wrapper__form">
+                    <h4 style={{textAlign: 'center'}}>Check your token ID</h4>
+                    <input type="text" name="Name1" onChange={this.handlechange} value={this.state.Name1} placeholder="YOUR TOKEN NAME (ex. Ethereum)"/>
+                    <br/>
+                    <button type="submit">submit</button>
+                </form>
+                
                 <br/>
-                <button type="submit">submit</button>
                 
-               
-                
-                
-                
-
-
-            </form>
-            <form onSubmit={this.handlesubmit1}>
-               <h4>Enter name of your token</h4>
-                <input type="text" name="Name1" onChange={this.handlechange} value={this.state.Name1}/>
-                <br/>
-                <button type="submit">submit</button>
-
-
-            </form>
-            <br/>
-            {this.state.Id !== "" ? <h3>The Tokenid is {this.state.Id}</h3> : ""}
+                {this.state.Id !== "" ? <h3 style={{textAlign: 'center'}}>The Tokenid is {this.state.Id}</h3> : ""}
 
             </div>
         )

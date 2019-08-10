@@ -1,45 +1,62 @@
 /* User-defined styles */
 .app-container {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height:100vh;
+  width: 100%;
+  height:100%;
   justify-content: center;
   align-items: center;
+  top: 0;
 }
 
-
-/*Pre-defined styles*/
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header-label {
+  width:100%;
+  padding: 1em;
+  background-color: #555;
+  box-shadow: inset 0px 0px 20px 0px #000;
   color: white;
+  text-align: center;
+  margin-bottom: 3em;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2em;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+  width:100%;
+  padding: 1em;
+  border-bottom: 10px groove #555;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper__form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 468px;
+  font-weight: bolder;
+}
+
+button {
+  color: white;
+  border-radius: 0.5em;
+  margin:0.2em;
+  padding: 1em;
+  background: #000;
+}
+
+input {
+  padding: 1em;
+  margin-bottom: 0.2em;
+}
+
+h4 {
+  font-size: 1.5em;
+  margin: 0 auto;
+  padding: 1em 0.2em;
+  font-family: 'Libre Caslon Text', serif;
+}
+
+.copyright {
+  text-align: center;
+  margin: 4em auto; 
 }

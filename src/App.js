@@ -15,9 +15,11 @@ function App() {
   return (
     <div className="App">
       <div className="app-container">
-        <h1>Welcome to {appName}</h1>
-        <h4>Create your ERC20 token here</h4>
-        
+        <div className="header-label">
+          <p>Welcome to {appName}</p>
+        </div>
+
+        <h4>Create your ERC20 token here</h4>        
         <CreateToken/>
 
         <br/>
@@ -45,8 +47,9 @@ function App() {
         
         <DelegateTransfer/>
 
+        <p className="copyright"> &copy; Jagpreet!</p>
+
       </div>
-      
     </div>
   );
 }

@@ -248,24 +248,14 @@ class DelegateTransfer extends React.Component
     {
         return(
 
-            <div>
-                <form onSubmit={this.handlesubmit}>
-                <p>Enter id of your token</p>
-                <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id}/>
-                <br/>
-                <p>Buyer address</p>
-                <input type="text" name="buyer" onChange={this.handlechange} value={this.state.buyer}/>
-                <br/>
-                <p>Owner address</p>
-                <input type="text" name="owner" onChange={this.handlechange} value={this.state.owner}/>
-                <br/>
-                <p>Number of Tokens</p>
-                <input type="text" name="numTokens" onChange={this.handlechange} value={this.state.numTokens}/>
-                <br/>
-                <button type="submit">submit</button>
+            <div className="wrapper">
+                <form onSubmit={this.handlesubmit} className="wrapper__form">
+                    <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
+                    <input type="text" name="buyer" onChange={this.handlechange} value={this.state.buyer} placeholder="BUYER ADDRESS (ex. 0xfa12...)"/>
+                    <input type="text" name="owner" onChange={this.handlechange} value={this.state.owner }placeholder="OWNER ADDRESS (ex. 0xfa12...)"/>
+                    <input type="text" name="numTokens" onChange={this.handlechange} value={this.state.numTokens} placeholder="NUMBER OF TOKENS (ex. 10)"/>
+                    <button type="submit">submit</button>
                 </form>
-                
-
             </div>
         )
     }

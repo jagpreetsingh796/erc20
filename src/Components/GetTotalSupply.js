@@ -241,15 +241,13 @@ class GetTotalSupply extends React.Component
     render()
     {
         return(
-            <div>
-                <form onSubmit={this.handlesubmit}>
-                <p>Enter id of your token</p>
-                <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id}/>
-                <br/>
+            <div className="wrapper">
+                <form onSubmit={this.handlesubmit} className="wrapper__form">
+                <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
                 <button type="submit">submit</button>
                 </form>
                 <br/>
-                {this.state.balance !== "" ? <h3>The totalsupply is {this.state.balance}</h3> : ""}
+                {this.state.balance !== "" ? <h3 style={{textAlign: 'center'}}>The totalsupply is {this.state.balance}</h3> : ""}
 
             </div>
         )

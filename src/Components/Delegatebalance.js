@@ -247,21 +247,15 @@ class Delegatebalance extends React.Component
     render()
     {
         return(
-            <div>
-            <form onSubmit={this.handlesubmit}>
-            <p>Enter id of your token</p>
-            <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id}/>
-            <br/>
-            <p>Delegate address</p>
-            <input type="text" name="delegate" onChange={this.handlechange} value={this.state.delegate}/>
-            <br/>
-            <p>Owner addresss</p>
-            <input type="text" name="owner" onChange={this.handlechange} value={this.state.owner}/>
-            <br/>
-            <button type="submit">submit</button>
-            </form>
-            <br/>
-                {this.state.balance !== "" ? <h3>The delegate balance is {this.state.balance}</h3> : ""}
+            <div className="wrapper">
+                <form onSubmit={this.handlesubmit} className="wrapper__form">
+                    <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id0} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
+                    <input type="text" name="delegate" onChange={this.handlechange} value={this.state.delegate} placeholder="DELEGATE ADDRESS (ex. 0xfa12...)"/>
+                    <input type="text" name="owner" onChange={this.handlechange} value={this.state.owner} placeholder="OWNER ADDRESS (ex. 0xfa12...)"/>
+                    <button type="submit">submit</button>
+                </form>
+                <br/>
+                {this.state.balance !== "" ? <h3 style={{textAlign: 'center'}}>The delegate balance is {this.state.balance}</h3> : ""}
 
         </div>
         )

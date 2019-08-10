@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import CreateToken from './CreateToken'
+import CreateToken from './Components/CreateToken'
 import { mount } from 'enzyme';
 
 describe('CreateToken component',()=>{

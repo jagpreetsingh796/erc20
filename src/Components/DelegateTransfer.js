@@ -1,6 +1,6 @@
 import React from "react"
 import { ethers } from 'ethers';
-let addr
+import Loader from 'react-loader-spinner'
 class DelegateTransfer extends React.Component
 {
     constructor()
@@ -10,7 +10,8 @@ class DelegateTransfer extends React.Component
             Id:"",
             buyer:"",
             owner:"",
-            numTokens:""
+            numTokens:"",
+            loading:false
             
         }
         this.handlechange=this.handlechange.bind(this)
@@ -25,7 +26,7 @@ class DelegateTransfer extends React.Component
     handlesubmit =async(e)=>
     {
         e.preventDefault();
-        console.log("heloooooooo")
+        this.setState({ loading: true });
         let ethereum = window.ethereum;
         // let web3 = window.Web3;
         let addr=await ethereum.enable()
@@ -239,13 +240,14 @@ class DelegateTransfer extends React.Component
             Id:"",
             buyer:"",
             owner:"",
-            numTokens:""
+            numTokens:"",
+            loading:false
             
           })
 
     }
     render()
-    {
+    {  const loading=this.state.loading
         return(
 
             <div className="wrapper">
@@ -254,7 +256,15 @@ class DelegateTransfer extends React.Component
                     <input type="text" name="buyer" onChange={this.handlechange} value={this.state.buyer} placeholder="BUYER ADDRESS (ex. 0xfa12...)"/>
                     <input type="text" name="owner" onChange={this.handlechange} value={this.state.owner }placeholder="OWNER ADDRESS (ex. 0xfa12...)"/>
                     <input type="text" name="numTokens" onChange={this.handlechange} value={this.state.numTokens} placeholder="NUMBER OF TOKENS (ex. 10)"/>
-                    <button type="submit">submit</button>
+                    <button type="submit" disabled={loading}>
+                    {this.state.loading ===true  ?  <Loader
+         type="Puff"
+         color="white"
+         height="30"
+         width="30"
+      />: ""}
+                        
+                        submit</button>
                 </form>
             </div>
         )

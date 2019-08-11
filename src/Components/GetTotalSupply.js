@@ -1,5 +1,6 @@
 import React from "react"
 import { ethers } from 'ethers';
+import Loader from 'react-loader-spinner'
 let addr
 class GetTotalSupply extends React.Component
 {
@@ -8,7 +9,8 @@ class GetTotalSupply extends React.Component
         super()
         this.state={
             Id:"",
-            balance:""
+            balance:"",
+            loading:false
         }
         this.handlechange=this.handlechange.bind(this)
         this.handlesubmit=this.handlesubmit.bind(this)
@@ -22,7 +24,7 @@ class GetTotalSupply extends React.Component
     handlesubmit= async(e)=>
     {
         e.preventDefault();
-        console.log("heloooooooo")
+        this.setState({ loading: true });
         let ethereum = window.ethereum;
         // let web3 = window.Web3;
         addr=await ethereum.enable()
@@ -235,16 +237,26 @@ class GetTotalSupply extends React.Component
       
         console.log("The balance is",tx1.toString())
         this.setState({
-            balance:tx1.toString()
+            balance:tx1.toString(),
+            loading:false
         })
     }
     render()
     {
+        const loading=this.state.loading
         return(
             <div className="wrapper">
                 <form onSubmit={this.handlesubmit} className="wrapper__form">
                 <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
-                <button type="submit">submit</button>
+                <button type="submit" disabled={loading}>
+                {this.state.loading ===true  ?  <Loader
+         type="Puff"
+         color="white"
+         height="30"
+         width="30"
+      />: ""}
+                    
+                    submit</button>
                 </form>
                 <br/>
                 {this.state.balance !== "" ? <h3 style={{textAlign: 'center'}}>The totalsupply is {this.state.balance}</h3> : ""}

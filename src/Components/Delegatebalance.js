@@ -1,6 +1,6 @@
 import React from "react"
 import { ethers } from 'ethers';
-let addr
+import Loader from 'react-loader-spinner'
 class Delegatebalance extends React.Component
 {
     constructor()
@@ -10,7 +10,8 @@ class Delegatebalance extends React.Component
             Id:"",
             delegate:"",
             owner:"",
-            balance:""
+            balance:"",
+            loading:false
         }
         this.handlechange=this.handlechange.bind(this)
          this.handlesubmit=this.handlesubmit.bind(this)
@@ -24,7 +25,7 @@ class Delegatebalance extends React.Component
     handlesubmit =async(e)=>
     {
         e.preventDefault();
-        console.log("heloooooooo")
+        this.setState({ loading: true });
         let ethereum = window.ethereum;
         // let web3 = window.Web3;
         let addr=await ethereum.enable()
@@ -240,19 +241,27 @@ class Delegatebalance extends React.Component
        this.setState({
         Id:"",
         owner:"",
-        delegate:""
+        delegate:"",
+        loading:false
 
        })
     }
     render()
-    {
+    {   const loading=this.state.loading
         return(
             <div className="wrapper">
                 <form onSubmit={this.handlesubmit} className="wrapper__form">
-                    <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id0} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
+                    <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
                     <input type="text" name="delegate" onChange={this.handlechange} value={this.state.delegate} placeholder="DELEGATE ADDRESS (ex. 0xfa12...)"/>
                     <input type="text" name="owner" onChange={this.handlechange} value={this.state.owner} placeholder="OWNER ADDRESS (ex. 0xfa12...)"/>
-                    <button type="submit">submit</button>
+                    <button type="submit" disabled={loading}>
+                    {this.state.loading ===true  ?  <Loader
+         type="Puff"
+         color="white"
+         height="30"
+         width="30"
+      />: ""}
+                        submit</button>
                 </form>
                 <br/>
                 {this.state.balance !== "" ? <h3 style={{textAlign: 'center'}}>The delegate balance is {this.state.balance}</h3> : ""}

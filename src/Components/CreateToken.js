@@ -1,6 +1,7 @@
 import React from "react"
 import firebase from './Firestore'
 import { ethers } from 'ethers';
+import Loader from 'react-loader-spinner'
 
 let addr
 
@@ -15,14 +16,16 @@ class CreateToken extends React.Component
             Symbol:"",
             TotalSupply:"",
             Name1:"",
-            Id:""
+            Id:"",
+            loading1: false,
+            loading2:false
            
         }
          this.handlechange=this.handlechange.bind(this)
         this.handlesubmit=this.handlesubmit.bind(this)
         this.handlesubmit1=this.handlesubmit1.bind(this)
     }
-    handlechange = e =>
+    handlechange=(e) =>
     {
         this.setState({
             [e.target.name]:e.target.value
@@ -31,6 +34,7 @@ class CreateToken extends React.Component
     handlesubmit= async(e)=>
     {
         e.preventDefault();
+        this.setState({ loading1: true });
         // const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('ws://localhost:8546'), null, {});
         const db = firebase.firestore();
         let ethereum = window.ethereum;
@@ -258,12 +262,13 @@ class CreateToken extends React.Component
             Name:"",
             Symbol:"",
             TotalSupply:"",
-            
+            loading1:false
           })
         }
         handlesubmit1=async(e)=>
         {   
             e.preventDefault()
+            this.setState({ loading2: true });
             let ethereum = window.ethereum;
         // let web3 = window.Web3;
         addr=await ethereum.enable()
@@ -286,6 +291,7 @@ class CreateToken extends React.Component
                 Id:Tokenid,
                 Name1:"",
                 TotalSupply:"",
+                loading2:false
             })
         }
 
@@ -293,20 +299,39 @@ class CreateToken extends React.Component
 
     render()
     {
+        const loading1=this.state.loading1
+        const loading2=this.state.loading2
+
         return(
             <div className="wrapper">
                 <form onSubmit={this.handlesubmit} className="wrapper__form">
                     <input  type="text"  name="Name"  label="Name" onChange={this.handlechange} value={this.state.Name} placeholder="TOKEN NAME (ex. Ethereum)"/>
                     <input type="text"  name="Symbol" label="Symbol" onChange={this.handlechange}  value={this.state.Symbol} placeholder="TOKEN CODE (ex. ETH)"/>
                     <input type="text"  name="TotalSupply" label="TotalSupply"  onChange={this.handlechange}  value={this.state.TotalSupply} placeholder="TOTAL SUPPLY (ex. 10000)"/>
-                    <button type="submit">Create Token</button>
+                    <button type="submit" disabled={loading1}>
+                    {this.state.loading1 ===true  ?  <Loader
+         type="Puff"
+         color="white"
+         height="30"
+         width="30"
+      />: ""}
+                        
+                        Create Token</button>
+                    
+
                 </form>
 
                 <form onSubmit={this.handlesubmit1} className="wrapper__form">
                     <h4 style={{textAlign: 'center'}}>Check your token ID</h4>
                     <input type="text" name="Name1" onChange={this.handlechange} value={this.state.Name1} placeholder="YOUR TOKEN NAME (ex. Ethereum)"/>
                     <br/>
-                    <button type="submit">submit</button>
+                    <button type="submit" disabled={loading2} >
+                    {this.state.loading2 ===true  ?  <Loader
+         type="Puff"
+         color="white"
+         height="30"
+         width="30"
+      />: ""}submit</button>
                 </form>
                 
                 <br/>

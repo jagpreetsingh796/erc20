@@ -1,5 +1,6 @@
 import React from "react"
 import { ethers } from 'ethers';
+import Loader from 'react-loader-spinner'
 
 class Transfer extends React.Component
 {
@@ -9,7 +10,8 @@ class Transfer extends React.Component
         this.state={
             Id:"",
             reciever:"",
-            numTokens:""
+            numTokens:"",
+            loading:false
         }
         this.handlechange=this.handlechange.bind(this)
          this.handlesubmit=this.handlesubmit.bind(this)
@@ -23,7 +25,8 @@ class Transfer extends React.Component
     handlesubmit =async(e)=>
     {
         e.preventDefault();
-        console.log("heloooooooo")
+        this.setState({ loading: true });
+       
         let ethereum = window.ethereum;
         // let web3 = window.Web3;
         let addr=await ethereum.enable()
@@ -236,14 +239,15 @@ class Transfer extends React.Component
        this.setState({
         Id:"",
         reciever:"",
-        numTokens:""
+        numTokens:"",
+        loading:false
 
        })
        
 
     }
     render()
-    {
+    {   const loading=this.state.loading
         return(
 
             <div className="wrapper">
@@ -251,7 +255,15 @@ class Transfer extends React.Component
                     <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id} placeholder="ENTER ID OF YOUR TOKEN (ex. 7)"/>
                     <input type="text" name="reciever" onChange={this.handlechange} value={this.state.reciever} placeholder="RECIEVER ADDRESS (ex. 0xfa12...)"/>
                     <input type="text" name="numTokens" onChange={this.handlechange} value={this.state.numTokens} placeholder="NUMBER OF TOKENS (ex. 10)"/>
-                    <button type="submit">submit</button>
+                    <button type="submit" disabled={loading}>
+                    {this.state.loading ===true  ?  <Loader
+         type="Puff"
+         color="white"
+         height="30"
+         width="30"
+      />: ""}
+                        
+                        submit</button>
                 </form>                
             </div>
         )

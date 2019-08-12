@@ -63,7 +63,7 @@ The app has been deployed to this [link] (https://erc20-8775e.firebaseapp.com/)
 
 ## Submitted by
 
-* **Jagpreet** - [mail_address](jagpreet.singh796gmail.com)
+* **Jagpreet** - [jagpreet.singh796gmail.com]
 * **Enroll** -101226895
 
 ## License

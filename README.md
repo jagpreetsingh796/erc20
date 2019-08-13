@@ -3,7 +3,7 @@
 This is a ERC20 dapp. It performs all the functionalities required by the ERC20 standard.ERC-20 was proposed on November 19, 2015, by Fabian Vogelsteller.It defines a common list of rules that an Ethereum token has to implement, giving developers the ability to program how new tokens will function within the Ethereum ecosystem.ERC is an acronym for Ethereum Request for Comment, and 20 is the number that was assigned to the standard.
 
 **Note** 
-- I haven not used  redux for  as there are not that many states.In order to handle the loading state. I have used the following react module https://www.npmjs.com/package/react-loader-spinner and conditional rendering.
+- I haven not used  redux  as there are no interactions within my component states.In order to handle the loading state. I have used the following react module https://www.npmjs.com/package/react-loader-spinner and conditional rendering.
 - I have used metamask so didn't use backend.
 - I have done styling from raw CSS
 - It is kind of reposive, to some extent using flexbox

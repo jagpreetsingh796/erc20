@@ -13,6 +13,8 @@ This is a ERC20 dapp. It performs all the functionalities required by the ERC20 
 - I have deployed the dapp using firebase at this url https://erc20-8775e.firebaseapp.com/
 - I have performed front end unit testing with the help of enzyme and jest.
 - I have deployed the smart contract on Rinkeby test net at 0xb8a5e17673ff2acc6dbdf0cd2c5795c8fcb7b5ca
+- Use the rinkeby test network on your metamask
+
 
 
 

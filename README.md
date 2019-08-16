@@ -14,6 +14,11 @@ This is a ERC20 dapp. It performs all the functionalities required by the ERC20 
 - I have performed front end unit testing with the help of enzyme and jest.
 - I have deployed the smart contract on Rinkeby test net at 0xb8a5e17673ff2acc6dbdf0cd2c5795c8fcb7b5ca
 - Use the rinkeby test network on your metamask
+- I have used firebase firestore for the purpose of storing the token id which is associated with the the name
+  of the token and ethereum address of the owner inorder to resolve the name conflicts.
+  
+ # UseCase
+ They are mainly used as ICO tokens.ICOs, or initial coin offerings, are fundraising events where companies raise funds for projects by selling digital tokens.A traditional finance analogy would be IPOs, or initial public offerings. IPOs are when companies get listed on public stock exchanges and sell stocks (shares) of their company to the public in order to raise funds.The ERC20 token standard makes it easier to exchange one ERC20 token for another, integrate various ERC20 tokens into platforms like blockchain wallets and exchanges, and more.
 
 
 
@@ -77,4 +82,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * [Readme] (https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [ERC20] (https://en.wikipedia.org/wiki/ERC-20)
+* [ERC20] (https://en.wikipedia.org/wiki/ERC-20,https://support.exodus.io/article/108-what-is-an-erc20-token-and-does-exodus-support-it)
